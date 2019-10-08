@@ -1,3 +1,5 @@
+package eili.bits;
+
 public class Bitman {
 
     public static int getBit(int bitset, int bit) {

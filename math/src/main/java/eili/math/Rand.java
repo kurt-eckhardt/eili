@@ -1,3 +1,5 @@
+package eili.math;
+
 import java.util.Random;
 
 

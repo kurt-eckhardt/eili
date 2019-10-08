@@ -1,3 +1,5 @@
+package eili.math;
+
 public class EggDrop {
 
     static int eggs      = 12;

@@ -1,3 +1,5 @@
+package eili.bits;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,3 +1,5 @@
+package eili.bits;
+
 // 0000 => 0000
 // 0001 => 0001  (1 | add all pairs of bits and use sum as next bit in gray code - throw away carry?)
 // 0010 => 0011  (1 | XOR pairs of bits as next bit in gray code)
