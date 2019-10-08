@@ -1,3 +1,5 @@
+package eili.leet;
+
 public class Leet0003 {
 
     // curIdx  aChar  lastSeenAt  startIdx   curLen   maxLen

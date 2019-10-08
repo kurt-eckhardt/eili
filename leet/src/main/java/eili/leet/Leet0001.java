@@ -1,3 +1,5 @@
+package eili.leet;
+
 import java.util.HashMap;
 
 /**
