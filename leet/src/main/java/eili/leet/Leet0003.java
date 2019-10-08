@@ -13,7 +13,7 @@ public class Leet0003 {
 
     public static int solution(String s) {
 
-        Integer[] lastSeenAt = new Integer[26]; // index where chars was last seen
+        Integer[] lastSeenAt = new Integer[256]; // index where chars was last seen
         int startIdx = 0; // index where the substring starts
         int curLen   = 0;
         int maxLen   = 0;

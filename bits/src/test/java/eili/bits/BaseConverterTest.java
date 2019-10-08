@@ -1,3 +1,5 @@
+package eili.bits;
+
 public class BaseConverterTest {
     public static void main(String[] args) {
         int base10 = 298715793;

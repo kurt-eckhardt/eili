@@ -1,3 +1,5 @@
+package eili.bits;
+
 public class BitmanTest {
     public static void main(String[] args) {
         int bitset = 0xff;

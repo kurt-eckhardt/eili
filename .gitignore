@@ -8,6 +8,7 @@
 .ivy2
 .project
 .settings
+*.iml
 bin
 build
 out

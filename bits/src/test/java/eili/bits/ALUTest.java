@@ -1,3 +1,5 @@
+package eili.bits;
+
 public class ALUTest {
 
     public static void main(String[] args) {
