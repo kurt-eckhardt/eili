@@ -72,6 +72,9 @@ package eili.leet;
  *     loIdx = partitionA + 1;
  * }
  *
+ * Learnings:
+ * 1)
+ *
  */
 public class Leet0004 {
 

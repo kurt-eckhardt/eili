@@ -26,6 +26,10 @@ package eili.leet;
  * signed integer range: [−231,  231 − 1].  For the purpose of this problem, assume that your
  * function returns 0 when the reversed integer overflows.
  *
+ * Learnings:
+ * 1. Don't get fancy with the overflow/underflow calculations.  They are tricky.
+ *    Just check for the hard-coded boundary values!
+ *
  */
 public class Leet0007 {
 

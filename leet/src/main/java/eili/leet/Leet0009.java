@@ -3,7 +3,7 @@ package eili.leet;
 /**
  * Problem #:  0009
  * Name:       Palindrome Number
- * Tags:
+ * Tags:       Palindrome, Math
  * Difficulty: Easy
  *
  * Determine whether an integer is a palindrome. An integer is a palindrome when
@@ -32,7 +32,7 @@ package eili.leet;
  *
  *
  * Learnings:
- *
+ * 1) Use Math.log10(num)+1 to determine the number of digits in a number.
  */
 public class Leet0009 {
 
@@ -58,6 +58,7 @@ public class Leet0009 {
         if (num < 10) return true;
         int numDigits = (int)Math.log10(num)+1;
 
+        // reverse first half of digits
         int loDigits = 0;
         for (int i=0; i < numDigits/2; i++) {
             loDigits = loDigits * 10 + (num % 10);
@@ -67,6 +68,7 @@ public class Leet0009 {
         // remove "middle" digit if necessary
         if (numDigits % 2 == 1) num = num / 10;
 
+        // at this point, num contains just the "hiDigits" (top half)
         return loDigits - num == 0;
     }
 }
