@@ -1,0 +1,55 @@
+What to practice:
+1. Iteration & Recursion
+2. Arrays & Matricies
+3. Linked Lists
+4. Queues, Stacks, Heaps
+5. Sets & HashMaps
+6. Trees & Binary Search
+7. Graphs, BFS, DFS
+8. Tries
+9. Sorting
+10. Dynamic Programming, Memoization, Divide & Conquer, Bottom-Up
+11. Proofs
+12. Multiple Pointers
+13. Sliding Windows
+14. Greedy Algorithms
+
+
+How to practice effictively:
+1. Identify Key Lessons/Takeaways from a problem/solution
+2. After completing a questions, write down the one or two things you could have done or known that would have made the problem easier.
+3. Are those lessons useful in an interview?
+
+
+Where to find good study material:
+1. LeetCode
+2. Berkely - CS 61A,B
+3. Harvey  - CS50 
+4. CMU
+5. Datastructures sections on HackerRank & GeeksForGeeks
+6. Gayle's Datastructure Videos
+
+How to start after the question:
+0. Do not write code until you know how to solve the problem!
+1. Draw picture of the problem as it's being described
+2. Add the inputs and the outputs to the drawing
+3. Walk/talk through how to convert an input->output
+4. Codify step #3 into an algorithm & handle edge cases.
+
+Discuss solution with interviewer to confirm approach:
+1. Explain solution in plain english
+2. Step-by-step (bullets)
+3. Pseudo-code
+4. Functions
+5. Implementation
+
+Ask questions in interview that help move toward solution:
+1. What is my Big-O
+2. What is the next best Big-O
+3. Why is this possible
+4. Where is the repeated work happening?
+5. Does this need to happen?
+6. Why is this hard to code? (do I need a temp variable?)
+
+How to get unstuck:
+
