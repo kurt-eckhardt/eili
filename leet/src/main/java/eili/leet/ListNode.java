@@ -20,7 +20,7 @@ public class ListNode {
     public static ListNode makeList(int size) {
         ListNode[] nodes = new ListNode[10];
         nodes[0] = new ListNode(0);
-        for (int i=1; i < 10; i++) {
+        for (int i=1; i < size; i++) {
             nodes[i] = new ListNode(i);
             nodes[i-1].next = nodes[i];
         }

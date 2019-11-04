@@ -5,6 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Problem #:  0022
+ * Name:       Valid Parens
+ * Tags:       Bit Manipulation
+ * Difficulty: Medium
+ * Techniques: Break-It-Down
+ * Learnings:
+ * 1) It wasn't necessary to use a BigInt to compute all of the patterns.
+ * Turns out, it takes a long time to compute all combinations for n=14 (i.e. 28 bits)
+ * Increasing this any futher is just a test of patience.  So... Using an int
+ * or even a long sufficies.
+ *
  *
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  *

@@ -2,11 +2,23 @@ package eili.leet03;
 
 import eili.leet.ListNode;
 
-import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.PriorityQueue;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
+ * Problem #:  0023
+ * Name:       Merge K Sorted Lists
+ * Tags:       Linked List, Heap
+ * Difficulty: Hard
+ * Techniques: Dummy Pointer
+ * Learnings:
+ * 1) No need for a container class to store the ListNode that was returned
+ *    from the minHeap because once we have access to the ListNode we can
+ *    use it to find the next item in the list that needs to be enqueued.
+ *
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
  *
  * Example:
@@ -43,7 +55,7 @@ public class Leet0023 {
 
         ListNodeComparator lnComparator = new ListNodeComparator();
         PriorityQueue<ListNode> minHeap = new PriorityQueue<>(lnComparator);
-        minHeap.addAll(Arrays.asList(lists));
+        minHeap.addAll(Stream.of(lists).filter(Objects::nonNull).collect(Collectors.toList()));
 
         while (!minHeap.isEmpty()) {
             ListNode min = minHeap.remove();
