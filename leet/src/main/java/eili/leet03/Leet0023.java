@@ -12,6 +12,7 @@ import java.util.stream.Stream;
  * Problem #:  0023
  * Name:       Merge K Sorted Lists
  * Tags:       Linked List, Heap
+ * BigO:       O(N*Log(K))
  * Difficulty: Hard
  * Techniques: Dummy Pointer
  * Learnings:
@@ -42,8 +43,8 @@ public class Leet0023 {
     }
 
     /**
-     * O(N*K*log(K))
-     * Each add/remove from the heap costs K*LogK where K = number of lists
+     * O(N*log(K))
+     * Each add/remove from the heap costs Log K where K = number of lists
      * We do this N times where n = total number of items in all lists
      *
      * @param lists
