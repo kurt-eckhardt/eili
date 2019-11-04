@@ -1,4 +1,4 @@
-package eili.leet;
+package eili.leet01;
 
 import java.util.HashMap;
 
@@ -6,7 +6,9 @@ import java.util.HashMap;
  * Problem #:  0001
  * Name:       Two Sum
  * Tags:       HashMap
+ * BigO:       Depends on Solution...
  * Difficulty: Easy
+ * Techniques: Memoization, Two Pointer, Sliding Window
  *
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.

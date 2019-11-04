@@ -1,10 +1,12 @@
-package eili.leet;
+package eili.leet01;
 
 /**
  * Problem #:  0002
  * Name:       Add Two Numbers
  * Tags:       Linked-List
+ * BigO:
  * Difficulty: Medium
+ * Techniques:
  *
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in
  * reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.

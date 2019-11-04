@@ -1,10 +1,14 @@
-package eili.leet;
+package eili.leet01;
 
 /**
  * Problem #:  0009
  * Name:       Palindrome Number
  * Tags:       Palindrome, Math
  * Difficulty: Easy
+ * Techniques: Bottom-Up?
+ * Learnings:
+ * 1) int numDigits = (int)Math.log10(num)+1;
+ *
  *
  * Determine whether an integer is a palindrome. An integer is a palindrome when
  * it reads the same backward as forward.

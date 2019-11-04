@@ -52,4 +52,4 @@ Ask questions in interview that help move toward solution:
 6. Why is this hard to code? (do I need a temp variable?)
 
 How to get unstuck:
-
+robyn

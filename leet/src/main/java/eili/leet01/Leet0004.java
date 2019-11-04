@@ -1,29 +1,29 @@
-package eili.leet;
+package eili.leet01;
 
 /**
  * Problem #:  0004
  * Name:       Median of Two Sorted Arrays
- * Tags:       Binary Search
+ * Tags:
+ * BigO:       O(log M+N) Time, O(1) Space
  * Difficulty: Hard
+ * Techniques: Binary Search
+ * Learnings:  Is this a reasonable interview question?  Seems too hard.
+ *
  *
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.
- *
  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
- *
  * You may assume nums1 and nums2 cannot be both empty.
  *
  * Example 1:
- *
  * nums1 = [1, 3]
  * nums2 = [2]
- *
  * The median is 2.0
- * Example 2:
  *
+ * Example 2:
  * nums1 = [1, 2]
  * nums2 = [3, 4]
- *
  * The median is (2 + 3)/2 = 2.5
+ *
  *
  * Approach:
  * For any sorted array, the median is defined as:
@@ -64,17 +64,13 @@ package eili.leet;
  * if (foundCentralNumbers()) {
  *     median for even = max(lowerA,lowerB) for odd
  *     median for odd  = average(max(lowerA,lowerB), min(upperA,upperB))
- * } else if (max(lowerA) > min(upperA)) {
+ * } else if (max(lowerA) > min(upperB)) {
  *     // central numbers are too large so move A partition to the left
  *     hiIdx = partitionA - 1;
  * } else {
  *     // central numbers are too large so move A partition to the right
  *     loIdx = partitionA + 1;
  * }
- *
- * Learnings:
- * 1)
- *
  */
 public class Leet0004 {
 
@@ -106,7 +102,6 @@ public class Leet0004 {
 
             if (partitionALowerMax <= partitionBUpperMin &&
                 partitionBLowerMax <= partitionAUpperMin) {
-
                 if (totalElements % 2 == 0) {
                     return (double)(Math.max(partitionALowerMax, partitionBLowerMax) +
                                     Math.min(partitionAUpperMin, partitionBUpperMin)) / 2;

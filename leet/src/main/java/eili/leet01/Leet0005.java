@@ -1,10 +1,13 @@
-package eili.leet;
+package eili.leet01;
 
 /**
  * Problem #:  0005
  * Name:       Longest Palindromic Substring
- * Tags:       String, Palindrome, Matrix, Array, Memoization, Bottom-Up, Dynamic Programming
+ * Tags:       String, Palindrome, Matrix, Arra
+ * BigO:       O(N^2) Time,  O(N^2) Space
  * Difficulty: Medium
+ * Techniques: Dynamic Programming, Memoization, Bottom-Up
+ *
  *
  * Given a string s, find the longest palindromic substring in s.
  * You may assume that the maximum length of s is 1000.
