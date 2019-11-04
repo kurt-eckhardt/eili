@@ -1,5 +1,10 @@
 package eili.leet02;
 
+import eili.leet.ListNode;
+
+import static eili.leet.ListNode.makeList;
+import static eili.leet.ListNode.printList;
+
 /**
  * Problem #:  0019
  * Name:       Remove Nth Node From End of List
@@ -27,12 +32,6 @@ package eili.leet02;
  * }
  */
 public class Leet0019 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 
     public static void main(String[] args) {
 
@@ -101,26 +100,5 @@ public class Leet0019 {
         nthFromLast.next = nthFromLast.next.next;
 
         return head;
-    }
-
-
-    public static ListNode makeList(int size) {
-        ListNode[] nodes = new ListNode[10];
-        nodes[0] = new ListNode(0);
-        for (int i=1; i < 10; i++) {
-            nodes[i] = new ListNode(i);
-            nodes[i-1].next = nodes[i];
-        }
-
-        return nodes[0];
-    }
-
-
-    public static void printList(ListNode runr) {
-        while (runr != null) {
-            System.out.print(runr.val);
-            runr = runr.next;
-        }
-        System.out.println();
     }
 }

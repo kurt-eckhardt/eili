@@ -1,5 +1,9 @@
 package eili.leet03;
 
+import eili.leet.ListNode;
+
+import static eili.leet.ListNode.makeList;
+
 /**
  * Problem #:  0021
  * Name:       Merge Two Sorted Lists
@@ -24,7 +28,7 @@ public class Leet0021 {
     
     public static void main(String[] args) {
         ListNode merged = merge(makeList(new int[] {1,2,4}), makeList(new int[] {1,3,4}));
-        printList(merged);
+        ListNode.printList(merged);
     }
 
 
@@ -95,36 +99,5 @@ public class Leet0021 {
         }
 
         return head;
-    }
-
-
-
-
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
-    
-    public static ListNode makeList(int[] vals) {
-        ListNode[] nodes = new ListNode[vals.length];
-        nodes[0] = new ListNode(vals[0]);
-        for (int i=1; i < vals.length; i++) {
-            nodes[i] = new ListNode(vals[i]);
-            nodes[i-1].next = nodes[i];
-        }
-
-        return nodes[0];
-    }
-
-
-    public static void printList(ListNode runr) {
-        while (runr != null) {
-            System.out.print(runr.val);
-            runr = runr.next;
-        }
-        System.out.println();
     }
 }

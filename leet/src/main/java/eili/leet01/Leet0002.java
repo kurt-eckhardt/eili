@@ -1,5 +1,7 @@
 package eili.leet01;
 
+import eili.leet.ListNode;
+
 /**
  * Problem #:  0002
  * Name:       Add Two Numbers
@@ -58,10 +60,4 @@ public class Leet0002 {
         return head;
     }
 
-    // Given by LeetCode
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 }
