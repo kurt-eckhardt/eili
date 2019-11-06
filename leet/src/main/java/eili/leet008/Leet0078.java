@@ -1,17 +1,16 @@
 package eili.leet008;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 /**
  * Problem #:  0078
- * Name:       All Subsets
- * Tags:       Math, Combinations, Power Set
+ * Name:       All Subsets (aka: power set, all subsequences)
+ * Tags:       Math, Combinations, Power Set, Subsequence
  * BigO:       O(2^N)
  * Difficulty: Medium
  * Techniques: ?
- * Learnings:
+ * Learnings:  ?
  *
  * Given a set of distinct integers, nums, return all possible subsets (the power set).
  * Note: The solution set must not contain duplicate subsets.
@@ -32,7 +31,7 @@ import java.util.List;
  */
 public class Leet0078 {
     public static void main(String[] args) {
-        System.out.println(powerset(new int[] {1,2,3,3}));
+        System.out.println(powerset(new int[] {1,2,3}));
     }
 
     public static List<List<Integer>> powerset(int[] nums) {
@@ -40,20 +39,16 @@ public class Leet0078 {
         if (nums == null) return new ArrayList<>();
 
         List<List<Integer>> powerset = new ArrayList<>();
-        HashSet<Integer> seen = new HashSet<>();
 
         powerset.add(List.of());
         for (int aNum : nums) {
-            if (!seen.contains(aNum)) {
-                seen.add(aNum);
-                List<List<Integer>> moresets = new ArrayList<>();
-                for (List<Integer> aSet : powerset) {
-                    List<Integer> newSet = new ArrayList<>(aSet);
-                    newSet.add(aNum);
-                    moresets.add(newSet);
-                }
-                powerset.addAll(moresets);
+            List<List<Integer>> moresets = new ArrayList<>();
+            for (List<Integer> aSet : powerset) {
+                List<Integer> newSet = new ArrayList<>(aSet);
+                newSet.add(aNum);
+                moresets.add(newSet);
             }
+            powerset.addAll(moresets);
         }
 
         return powerset;

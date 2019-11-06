@@ -57,12 +57,53 @@ robyn
 
 Longest Common Subsequence
 
+Techniques
+----------
+DP:
+Bottom-Up:
+Memoization:
 
 
-1    => 0 []
-12   => 1 [21]
-123  => 2 [312,231] (2 invalid)
-1234 => 9 [2143, 3142, 4143, 2413, 3412, 4312, 2341, 3421, 4321]  
+Problem Type
+------------
+Subsequence:
+Substrings:
+Palindrome: 
+Combinations:
+Permutations:
+
+
+Data Structures
+---------------
+Array:
+Matrix:
+HashMap:
+
+
+
+Count all 2 sums with target value=0
+-2, -2, -2, 0, 2, 2, 4
+
+{2, 2, -4, 2}
+
+VAL CNT 
+2   1
+
+2   2
+4   1
+
+-2  2
+0   1
+2   2
+4   1
+-4  1
+
+0   3
+2   4
+4   3
+6   1
+-2  3
+
 
 
 
