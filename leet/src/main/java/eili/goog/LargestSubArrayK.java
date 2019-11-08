@@ -20,7 +20,7 @@ public class LargestSubArrayK {
         for (int i : largest) { System.out.print(i+","); }
     }
 
-    //  s s s s s s     k=3
+    //  s s s s s s      k=3
     // {1,4,3,2,3,4,5,1} length=8
     //
     public static int[] largestSubArray(int[] nums, int k) {
