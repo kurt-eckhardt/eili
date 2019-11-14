@@ -89,6 +89,9 @@ package eili.leet.leet092;
 public class Leet0918 {
 
     public static int maxSumCircularSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
 
         int totSum  = nums[0];
         int maxSum  = nums[0];
@@ -97,14 +100,15 @@ public class Leet0918 {
         int currMin = nums[0];
         for (int i=1; i < nums.length; i++) {
             currMax = Math.max(currMax+nums[i], nums[i]);
-            maxSum  = Math.max(maxSum, currMax);
             currMin = Math.min(currMin+nums[i], nums[i]);
+            maxSum  = Math.max(maxSum, currMax);
             minSum  = Math.min(minSum, currMin);
             totSum += nums[i];
         }
 
         return maxSum < 0 ? maxSum : Math.max(totSum-minSum, maxSum);
     }
+
 
 
     public static void main(String[] args) {

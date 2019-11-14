@@ -1,4 +1,4 @@
-package eili.foo;
+package eili.scratch;
 
 public class Test {
 
