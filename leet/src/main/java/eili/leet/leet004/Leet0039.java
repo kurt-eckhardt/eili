@@ -66,6 +66,7 @@ public class Leet0039 {
     public static void main(String[] args) {
 //        solution(new int[] {2,3,5}, 8);
         System.out.println(solution(new int[] {2,3,6,7}, 7));
+        System.out.println(dfs_solution(new int[] {2,3,6,7}, 7, 0, new ArrayList<>(), new ArrayList<>()));
     }
 
     public static List<List<Integer>> solution(int[] candidates, int target) {
@@ -100,6 +101,29 @@ public class Leet0039 {
         }
 
         return waysToMake.getOrDefault(target, new ArrayList<>());
+    }
+
+
+    public static List<List<Integer>> dfs_solution(int[] candidates, int target, int startIdx, List<Integer> path, List<List<Integer>> ans) {
+
+        if (target == 0) {
+            System.out.println("Adding: " + path);
+            ans.add(new ArrayList<>(path));
+            return ans;
+        }
+
+        for (int i=startIdx; i < candidates.length; i++) {
+            System.out.println("Looking at candidate=" + candidates[i] + " startIdx=" + startIdx);
+            if (candidates[i] > target) {
+                return ans;
+            } else {
+                path.add(candidates[i]);
+                dfs_solution(candidates, target-candidates[i], i, path, ans);
+                path.remove(path.size()-1);
+            }
+        }
+
+        return ans;
     }
 
 }

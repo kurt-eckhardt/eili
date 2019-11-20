@@ -55,7 +55,7 @@ How to get unstuck:
 robyn
 
 
-Longest Common Subsequence
+
 
 Techniques
 ----------
@@ -79,6 +79,12 @@ Array:
 Matrix:
 HashMap:
 
+
+Essential Problems
+2 Sum
+Longest Common Subsequence
+Ways to Make Change
+Egg Drop
 
 
 Count all 2 sums with target value=0
