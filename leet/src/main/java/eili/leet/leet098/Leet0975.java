@@ -11,7 +11,9 @@ import java.util.TreeMap;
  * Difficulty: Hard
  * Techniques: Dynamic Programming
  * Learnings:
- * Approaches:
+ * 1) TreeMap lowerEntry, floorEntry, higherEntry, ceilingEntry can be used to return subtree values
+ * 2) Why do we need to count just odd instead of odd+even to get the totalWays to reach the end?
+ *
  *
  * You are given an integer array A.  From some starting index, you can make a series of jumps.
  * The (1st, 3rd, 5th, ...) jumps in the series are called odd numbered jumps, and
@@ -33,6 +35,34 @@ import java.util.TreeMap;
  * array (index A.length - 1) by jumping some number of times (possibly 0 or more than once.)
  *
  * Return the number of good starting indexes.
+ *
+ *
+ * For example:
+ * Input: [2,3,1,1,4]
+ * Output: 3
+ * Explanation:
+ * From starting index i = 0, we make jumps to i = 1, i = 2, i = 3:
+ *
+ * During our 1st jump (odd numbered), we first jump to i = 1 because A[1] is the smallest value
+ * in (A[1], A[2], A[3], A[4]) that is greater than or equal to A[0].
+ *
+ * During our 2nd jump (even numbered), we jump from i = 1 to i = 2 because A[2] is the largest value
+ * in (A[2], A[3], A[4]) that is less than or equal to A[1].  A[3] is also the largest value, but 2 is a
+ * smaller index, so we can only jump to i = 2 and not i = 3.
+ *
+ * During our 3rd jump (odd numbered), we jump from i = 2 to i = 3 because A[3] is the smallest value
+ * in (A[3], A[4]) that is greater than or equal to A[2].
+ *
+ * We can't jump from i = 3 to i = 4, so the starting index i = 0 is not good.
+ *
+ * In a similar manner, we can deduce that:
+ * From starting index i = 1, we jump to i = 4, so we reach the end.
+ * From starting index i = 2, we jump to i = 3, and then we can't jump anymore.
+ * From starting index i = 3, we jump to i = 4, so we reach the end.
+ * From starting index i = 4, we are already at the end.
+ *
+ * In total, there are 3 different starting indexes (i = 1, i = 3, i = 4) where we can reach the end
+ * with some number of jumps.
  */
 public class Leet0975 {
 
