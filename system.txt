@@ -112,6 +112,17 @@ VAL CNT
 6   1
 -2  3
 
+[[3,10],[0,2],[0,2],[3,10]]
+
+ private int gcd(int x, int y) {
+        while (y != 0) {
+            int r = x % y;
+            x = y;
+            y = r;
+        }
+        
+        return x;
+    }
 
 
 
