@@ -6,6 +6,7 @@ public class MinNumberOfChairs {
 
     public static void main(String[] args) {
         System.out.println(maxOverlaps(new int[] {1,2,4,5,3}, new int[] {5,5,7,6,8}));
+        System.out.println(maxOverlaps(new int[] {13, 28, 29, 14, 40, 17, 3}, new int[] {107, 95, 111, 105, 70, 127, 74}));
     }
 
     public static int maxOverlaps(int[] arrivTime, int[] leaveTime) {
