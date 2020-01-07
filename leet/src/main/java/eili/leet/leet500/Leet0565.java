@@ -25,7 +25,7 @@ public class Leet0565 {
         System.out.println(arrayNesting(new int[]{5,4,0,3,1,6,2}));
         System.out.println(arrayNesting(new int[]{0}));
     }
-    
+
     public static int arrayNesting(int[] nums) {
 
         if (nums == null || nums.length == 0) return 0;
