@@ -1,7 +1,7 @@
 package eili.leet.leet500;
 
 /**
- * Problem #:  0521
+ * Problem #:  521
  * Name:       Longest Uncommon Subsequence I
  * Tags:       Math, Power Set, String, Subsequence
  * BigO:       O(C) where 'C' is the number of characters in the shorter String
