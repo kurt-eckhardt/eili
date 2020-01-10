@@ -1,12 +1,15 @@
 package eili.leet.leet000;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Problem #:  0010
  * Name:       Regular Expression Matching
  * Tags:
  * Difficulty: Hard
- * Techniques: Break-It-Down
- * Learnings:  ?
+ * Techniques: Break-It-Down, Memoization
+ * Learnings:  This problem sucked!
  *
  * Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
  *
@@ -55,68 +58,155 @@ package eili.leet.leet000;
  */
 public class Leet0010 {
 
-    public static void main(String[] args) {
-        System.out.println("match[,]="+solution("",""));
-        System.out.println("match[,a]="+solution("","a"));
-        System.out.println("match[aa,]="+solution("aa",""));
-        System.out.println("match[aa,a]="+solution("aa","a"));
-        System.out.println("match[aa,aa]="+solution("aa","aa"));
-        System.out.println("match[aa,a.]="+solution("aa","a."));
-        System.out.println("match[aa,a*]="+solution("aa","a*"));
-        System.out.println("match[aaa,a*]="+solution("aaa","a*"));
-        System.out.println("match[aaab,a*b]="+solution("aaab","a*b"));
-        System.out.println("match[aaab,a*.]="+solution("aaab","a*."));
-        System.out.println("match[ab,.*]="+solution("ab",".*"));
-        System.out.println("match[caab,c*a*b]="+solution("caab","c*a*b"));
-        System.out.println("match[aab,c*a*b]="+solution("aab","c*a*b"));
-        System.out.println("match[mississippi,mis*is*p*.]="+solution("mississippi","mis*is*p*."));
-        System.out.println("match[,*]="+solution("","*"));
-        System.out.println("match[,**]="+solution("","**"));
-        System.out.println("match[,.*]="+solution("",".*"));
-        System.out.println("match[,..*]="+solution("","..*"));
-        System.out.println("match[a,*]="+solution("a","*"));
-        System.out.println("match[a,**]="+solution("a","**"));
-        System.out.println("match[a,.*]="+solution("a",".*"));
-        System.out.println("match[a,..*]="+solution("a","..*"));
-        System.out.println("match[a,.**]="+solution("a",".**"));
-        System.out.println("match[a,.**]="+solution("ab",".*c"));
+    public static Map<String, Boolean> memos = new HashMap<String, Boolean>();
+
+    public static boolean isMatch(String s, String p) {
+        memos.clear();
+        return isMatch(s, p, null);
     }
 
-    public static boolean solution(String str, String pat) {
+    public static boolean isMatch(String s, String p, Character prev) {
 
-        if (str == null || pat == null)     return false;
-        if (str.isEmpty() && pat.isEmpty()) return false;
-
-        char[] schars = str.toCharArray();
-        char[] pchars = pat.toCharArray();
-        char wildchar = (char)0; // previous pattern character
-
-        int sIdx=0;
-        int pIdx=0;
-        while (sIdx < schars.length && pIdx < pchars.length) {
-            char schar = schars[sIdx];
-            char pchar = pchars[pIdx];
-            if (pchar == '*') {
-                if (wildchar == '.') {
-                    return true;
-                } else if (schar == wildchar) {
-                    sIdx++;
-                } else {
-                    wildchar = pchar;
-                    pIdx++;
-                }
-            } else if (pchar == '.' || schar == pchar) {
-                wildchar = pchar;
-                pIdx++;
-                sIdx++;
-            } else if (pIdx < pchars.length-1 && pchars[pIdx+1]=='*') {
-                wildchar = pchars[pIdx+1];
-                pIdx += 2;
+        boolean result;
+        String memoKey = s + "_:_"+ p + "_:_" + prev;
+        if (memos.containsKey(memoKey)) {
+            return memos.get(memoKey);
+        } else if (s == null || p == null) {
+            result = false;
+        } else if (s.isEmpty() && p.isEmpty()) {
+            result = true;
+        } else if (p.length() > 1 && p.charAt(1) == '*') {
+            if (prev == null) prev = p.charAt(0);
+            if (!s.isEmpty()) {
+                boolean isFirstCharMatch = prev == '.' || prev == s.charAt(0);
+                result = isMatch(s, p.substring(2), null)
+                        || (isFirstCharMatch && isMatch(s.substring(1), p.substring(2), null))
+                        || (isFirstCharMatch && isMatch(s.substring(1), p, prev));
             } else {
-                return false;
+                result = isMatch(s, p.substring(2), null);
             }
+        } else if (!p.isEmpty() && !s.isEmpty()) {
+            boolean isFirstCharMatch = p.charAt(0) == '.' || p.charAt(0) == s.charAt(0);
+            result = isFirstCharMatch && isMatch(s.substring(1), p.substring(1), null);
+        } else {
+            result = false;
         }
 
-        return (sIdx >= schars.length);
+        memos.put(memoKey, result);
+        return result;
+    }
+
+
+
+//    public static boolean isMatch(String s, String p) {
+//
+////        System.out.println("s="+s + " p=" + p);
+//
+//        Character prev = null;
+//        while (!s.isEmpty() && !p.isEmpty() && !p.startsWith("*")) {
+//            prev = p.charAt(0);
+//            if (p.charAt(0) == '.' || p.charAt(0) == s.charAt(0)) {
+//                s = s.substring(1);
+//                p = p.substring(1);
+//            } else {
+//                return false;
+//            }
+//        }
+//
+//        if (s.isEmpty() && p.isEmpty()) {
+//            return true;
+//        } else if (p.isEmpty()) {
+//            return false;
+//        }
+//
+//        return isMatchZeroOneOrMoreOfPrev(prev, s, p);
+//    }
+//
+//
+//    public static boolean isMatchZeroOneOrMoreOfPrev(Character prev, String s, String p) {
+////        System.out.println("s="+s + " p=" + p + " prev="+ prev);
+//        if (prev == null) {
+//            return false;
+//        } else if (s.isEmpty() && p.isEmpty()) {
+//            return true;
+//        } else if (s.isEmpty() && !p.startsWith("*")) {
+//            return false;
+//        } else if (s.isEmpty() && p.startsWith("*")) {
+//            return isMatchZeroOneOrMoreOfPrev(prev, s, p.substring(1));
+//        } else if (prev == '.' || s.charAt(0) == prev) {
+//            return isMatch(s.substring(1), p.substring(1)) || isMatchZeroOneOrMoreOfPrev(prev, s.substring(1), p);
+//        } else {
+//            return isMatch(s, p.substring(1)); // zero
+//        }
+//    }
+//
+//    public static boolean isMatch(String str, String pat) {
+//
+//        if (str == null || pat == null)     return false;
+//        if (str.isEmpty() && pat.isEmpty()) return false;
+//
+//        char[] schars = str.toCharArray();
+//        char[] pchars = pat.toCharArray();
+//        char wildchar = (char)0; // previous pattern character
+//
+//        int sIdx=0;
+//        int pIdx=0;
+//        while (sIdx < schars.length && pIdx < pchars.length) {
+//            char schar = schars[sIdx];
+//            char pchar = pchars[pIdx];
+//            if (pchar == '*') {
+//                if (wildchar == '.') {
+//                    return true;
+//                } else if (schar == wildchar) {
+//                    sIdx++;
+//                } else {
+//                    wildchar = pchar;
+//                    pIdx++;
+//                }
+//            } else if (pchar == '.' || schar == pchar) {
+//                wildchar = pchar;
+//                pIdx++;
+//                sIdx++;
+//            } else if (pIdx < pchars.length-1 && pchars[pIdx+1]=='*') {
+//                wildchar = pchars[pIdx+1];
+//                pIdx += 2;
+//            } else {
+//                return false;
+//            }
+//        }
+//
+//        return (sIdx >= schars.length);
+//    }
+
+
+    public static void main(String[] args) {
+//        System.out.println("match[,]="+isMatch("",""));
+//        System.out.println("match[,a]="+isMatch("","a"));
+//        System.out.println("match[aa,]="+isMatch("aa",""));
+//        System.out.println("match[aa,a]="+isMatch("aa","a"));
+//        System.out.println("match[aa,aa]="+isMatch("aa","aa"));
+//        System.out.println("match[aa,a.]="+isMatch("aa","a."));
+//        System.out.println("match[aa,a*]="+isMatch("aa","a*"));
+//        System.out.println("match[aaa,a*]="+isMatch("aaa","a*"));
+//        System.out.println("match[aaab,a*b]="+isMatch("aaab","a*b"));
+//        System.out.println("match[aaab,a*.]="+isMatch("aaab","a*."));
+//        System.out.println("match[ab,.*]="+isMatch("ab",".*"));
+//        System.out.println("match[caab,c*a*b]="+isMatch("caab","c*a*b"));
+//        System.out.println("match[aab,c*a*b]="+isMatch("aab","c*a*b"));
+//        System.out.println("match[mississippi,mis*is*p*.]="+isMatch("mississippi","mis*is*p*."));
+//        System.out.println("match[,*]="+isMatch("","*"));
+//        System.out.println("match[,**]="+isMatch("","**"));
+//        System.out.println("match[,.*]="+isMatch("",".*"));
+//        System.out.println("match[,..*]="+isMatch("","..*"));
+//        System.out.println("match[a,*]="+isMatch("a","*"));
+//        System.out.println("match[a,**]="+isMatch("a","**"));
+//        System.out.println("match[a,.*]="+isMatch("a",".*"));
+//        System.out.println("match[a,..*]="+isMatch("a","..*"));
+//        System.out.println("match[a,.**]="+isMatch("a",".**"));
+//        System.out.println("match[ab,.*c]="+isMatch("ab",".*c"));
+//        System.out.println("match[ab,.*c]="+isMatch("ab",".*c"));
+        System.out.println("match[aaaaaaaaaaaaab,a*a*a*a*a*a*a*a*a*a*c]="+isMatch("aaaaaaaaaaaaab","a*a*a*a*a*a*a*a*a*a*c"));
     }
 }
+
+

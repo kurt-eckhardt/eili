@@ -7,13 +7,14 @@ import java.util.Map;
  * Problem #:  44
  * Name:       Wildcard Matching
  * Tags:       String, RegEx
- * BigO:       ?
+ * BigO:       O(s+p)
  * Difficulty: Hard
  * Techniques: Recursion, Dynamic Programming, Top Down, Memoization
  * Learnings:  This is similar to Levinstein distance.  We need to figure out how
- *             to break down the problem into smaller pieces.  The key insights are
+ *             to break down the problem into smaller pieces.  The key insights are:
  *             1) Match all fixed characters and single '?'.
  *             2) Match wildcard using one of three cases (see comments in code)
+ *             3) Use memoization to improve performance
  *
  * Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
  *
