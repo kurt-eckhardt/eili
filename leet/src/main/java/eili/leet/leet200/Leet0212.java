@@ -2,6 +2,15 @@ package eili.leet.leet200;
 
 import java.util.*;
 
+/**
+ * Problem #:  212
+ * Name:       Word Search II
+ * Tags:       Trie, Search, Matrix
+ * BigO:       O(R*C*W) Rows * Columns * Words - Worst case we search the entire matrix W times.  O(W*Chars) Space
+ * Difficulty: Hard
+ * Techniques: DFS
+ * Learnings:
+ */
 public class Leet0212 {
 
     public static void main(String[] args) {
