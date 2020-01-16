@@ -9,9 +9,9 @@ import java.util.Map;
  * Tags:       Favorite
  * BigO:       O(S) Time, O(T) Space
  * Difficulty: Hard
- * Techniques: Two Pointers
+ * Techniques: Two Pointers, HashMap
  * Learnings:
- *
+ * Related:
  *
  * Given a string S and a string T,
  * find the minimum window in S which will contain all the characters in T in complexity O(n).
@@ -85,6 +85,57 @@ public class Leet0076 {
 
 
     public static void main(String[] args) {
-        System.out.println("Min Window=["+minWindow("ADOBECODEBANCADOBECODEBANC", "DEBANCA")+"]");
+        System.out.println("Min Window=["+minWindow2("ADOBECODEBANCADOBECODEBANC", "DEBANCA")+"]");
     }
+
+
+
+    public static String minWindow2(String s, String t) {
+
+        if (s == null || t == null || s.length() == 0 || t.length() == 0) return "";
+
+        int lIdx = 0;
+        int rIdx = 0;
+        int minLIdx = 0;
+        int minRIdx = 0;
+        int found = 0;
+        char[] schars = s.toCharArray();
+        Map<Character, Integer> tCharCounts = new HashMap<>();
+        for (Character tchar : t.toCharArray()) tCharCounts.put(tchar, tCharCounts.getOrDefault(tchar,0)-1);
+
+        while (lIdx < schars.length && !tCharCounts.containsKey(schars[lIdx])) {
+            lIdx++; rIdx++;
+        }
+        if (rIdx < schars.length && tCharCounts.containsKey(schars[rIdx])) {
+            tCharCounts.put(schars[rIdx], tCharCounts.get(schars[rIdx])-1);
+            if (tCharCounts.get(schars[rIdx]) == 0) found++;
+        }
+
+        while (rIdx < schars.length) {
+            System.out.println("lIdx="+lIdx + " rIdx="+rIdx + " found="+found);
+
+            if (found == t.length()) {
+                System.out.print("All Letters Found: ");
+                //for (Character tchar : tCharCounts.keySet()) System.out.print(tchar+"="+tCharsFound.getOrDefault(tchar, 0)+" ");
+                if (rIdx - lIdx < minRIdx - minLIdx) {
+//                    System.out.println(" Setting min to ["+ s.substring(lIdx, rIdx+1)+"]");
+                    minRIdx = rIdx;
+                    minLIdx = lIdx;
+                }
+
+                tCharCounts.put(schars[lIdx], tCharCounts.get(schars[lIdx])-1);
+                if (tCharCounts.get(schars[lIdx]) < 0) found--;
+                do { lIdx++; } while (lIdx < rIdx && !tCharCounts.containsKey(schars[lIdx]));
+            } else {
+                rIdx++;
+                if (rIdx < schars.length && tCharCounts.containsKey(schars[rIdx])) {
+                    tCharCounts.put(schars[rIdx], tCharCounts.getOrDefault(schars[rIdx], 0)+1);
+                    if (tCharCounts.get(schars[rIdx]) == 0) found++;
+                }
+            }
+        }
+
+        return s.substring(minLIdx, minRIdx+1);
+    }
+
 }

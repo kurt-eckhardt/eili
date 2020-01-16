@@ -52,6 +52,7 @@ public class Leet0239 {
     }
 
     // Add numbers to the end of the queue such that the front of the queue will always have the largest value
+    // Note getFirst() returns the 'left most' value (e.g. 3) while getLast() returns the 'right most' value (e.g. 1)
     // nums=[3,2,1] then, Q=[3,2,1]
     // nums=[2,1,3] then, Q[2], Q=[2,1], Q=[3] (notice 2,1 are removed since 3 is bigger than both)
     public static int[] slidingWindowMax(int[] nums, int k) {
