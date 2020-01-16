@@ -5,16 +5,21 @@ import java.util.*;
 /**
  * Problem #:  0229
  * Name:       Majority Element II
- * Tags:       Boyer-Moyer, Voting, Mode, Frequency
+ * Tags:       Boyer-Moore, Voting, Mode, Frequency
  * BigO:       O(N) Time, O(1) Space
  * Difficulty: Medium (Hard!)
- * Techniques: Booth-Moyer Algorithm
+ * Techniques: Booth-Moore Algorithm
  * Learnings:
  * 1) See: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
- *    Without knowledge of Boyer-Moyer, this is pretty difficult to figure out.
+ *    Without knowledge of Boyer-Moore, this is pretty difficult to figure out.
  *    The basic idea is the major element (i.e. the mode) has to appear in at
- *    least half the array elements.  We can find this by counting the number of
- *    times we've seen the last element in the array.
+ *    least half the array elements.  If it isn't another value will pair with it
+ *    to reduce it's count to zero.  For example:  [5, 5, 0, 0, 0, 5, 0, 0, 5]
+ *
+ *    When processing the first element, we assign the value of 5 to candidate and 1 to count.
+ *    Since 5 is not the majority value, at some point in the list our algorithm must find another
+ *    value to pair with every 5 we've seen so far, thus count will drop to 0 at some point before
+ *    the last element in the list.
  *
  * 2) Normally, the majority element algorithm looks for n/2+1 so a single counter works.
  *    In this case, we can have 0,1,or 2 major elements.  So, we need to keep two counters.
