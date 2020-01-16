@@ -5,13 +5,13 @@ import java.util.*;
 /**
  * Problem #:  0229
  * Name:       Majority Element II
- * Tags:       Booth-Moyer, Voting, Mode, Frequency
+ * Tags:       Boyer-Moyer, Voting, Mode, Frequency
  * BigO:       O(N) Time, O(1) Space
  * Difficulty: Medium (Hard!)
  * Techniques: Booth-Moyer Algorithm
  * Learnings:
  * 1) See: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
- *    Without knowledge of Booth-Moyer, this is pretty difficult to figure out.
+ *    Without knowledge of Boyer-Moyer, this is pretty difficult to figure out.
  *    The basic idea is the major element (i.e. the mode) has to appear in at
  *    least half the array elements.  We can find this by counting the number of
  *    times we've seen the last element in the array.
