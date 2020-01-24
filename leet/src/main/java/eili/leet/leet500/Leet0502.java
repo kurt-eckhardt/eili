@@ -11,7 +11,7 @@ import java.util.*;
  * Techniques: ?
  * Learnings:
  * 1. Although we are maximizing project and minimizing cost, this is not a DP problem.
- *
+ * 2. The third solution is so much cleaner...
  *
  * Problem Description:
  * Suppose LeetCode will start its IPO soon. In order to sell a good price of its shares to Venture Capital,
