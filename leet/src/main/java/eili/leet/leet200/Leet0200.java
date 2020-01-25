@@ -7,6 +7,7 @@ package eili.leet.leet200;
  * BigO:       Time O(NxM), Space O(NxM)
  * Difficulty: Medium (Easy)
  * Techniques: BFS Traversal
+ * Similar To: 0695
  *
  * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally
