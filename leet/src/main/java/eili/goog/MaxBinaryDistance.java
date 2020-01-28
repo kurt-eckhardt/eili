@@ -1,7 +1,5 @@
 package eili.goog;
 
-import java.util.Arrays;
-
 public class MaxBinaryDistance {
 
     public static void main(String[] args) {
@@ -51,9 +49,9 @@ public class MaxBinaryDistance {
 
 
     public static class Node {
-        char val;
-        Node lNode;
-        Node rNode;
+        public char val;
+        public Node lNode;
+        public Node rNode;
 
         public Node(char val) {
             this.val = val;
