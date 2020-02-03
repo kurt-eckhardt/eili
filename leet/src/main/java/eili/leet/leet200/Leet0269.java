@@ -3,8 +3,8 @@ package eili.leet.leet200;
 import java.util.*;
 
 /**
- * Problem #:  0315
- * Name:       Count of Smaller Numbers After Self
+ * Problem #:  0269
+ * Name:       Alien Dictionary
  * Tags:       Khan's Algorithm, Topological Sort, Graph
  * BigO:       Time O(|V|+|E|), Space O(|V|)
  * Difficulty: Hard
