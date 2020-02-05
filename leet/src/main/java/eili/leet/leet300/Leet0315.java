@@ -29,6 +29,56 @@ import java.util.List;
  */
 public class Leet0315 {
 
+
+    static int swaps;
+    static void countSmallerMerge(int[] nums) {
+        mergesort(nums, 0, nums.length-1);
+    }
+
+    static void mergesort(int[] nums, int lo, int hi) {
+
+        if (lo >= hi) return;
+        int mid = (lo + hi) >>> 1;
+        mergesort(nums, lo, mid);
+        mergesort(nums, mid+1, hi);
+
+        System.out.println("About to merge lo="+lo + " mid=" + mid + " hi="+hi);
+        for (int i=lo; i <= mid; i++) {
+            System.out.print(nums[i] + ",");
+        }
+        System.out.println();
+        for (int i=mid+1; i <= hi; i++) {
+            System.out.print(nums[i] + ",");
+        }
+        System.out.println();
+
+
+        int loRun = lo;
+        int hiRun = mid+1;
+        while (loRun <= mid && hiRun <= hi) {
+            System.out.println("loRun="+loRun + " hiRun="+hiRun);
+            if (nums[loRun] < nums[hiRun]) {
+                loRun++;
+            } else {
+                int temp = nums[hiRun];
+                for (int i=hiRun; i > loRun; i--) {
+                    nums[i] = nums[i-1];
+                }
+                nums[loRun] = temp;
+                loRun++;
+                hiRun++;
+                mid++;
+            }
+        }
+
+        System.out.print("Done merging lo="+lo + " mid=" + mid + " hi="+hi + " result=");
+        for (int i=lo; i <= hi; i++) {
+            System.out.print(nums[i] + ",");
+        }
+        System.out.println();
+    }
+
+
     static List<Integer> countSmaller(int[] nums) {
 
         if (nums == null || nums.length == 0) return List.of();
@@ -78,6 +128,10 @@ public class Leet0315 {
     }
 
     public static void main(String[] args) {
-        System.out.println(countSmaller(new int[] {6,4,5,0,2,1,3}));
+//        int[] nums = new int[] {6,4,5,0,2,1,3};
+        int[] nums = new int[] {6,5,4,3,2,1,0};
+//        System.out.println(countSmaller(new int[] {6,4,5,0,2,1,3}));
+        countSmallerMerge(nums);
+        for (int num : nums) System.out.println(num);
     }
 }
