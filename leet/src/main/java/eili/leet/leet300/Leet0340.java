@@ -4,7 +4,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Hard (Medium)
+ * Problem #:  0340
+ * Name:       Longest Substring With K Unique Characters
+ * Tags:       Google
+ * BigO:       Time O(N), Space O(1)
+ * Difficulty: Hard (Medium)
+ * Techniques: Two Pointers, HashMap
+ * Learnings:  1) int lIdx = 0;
+ *                int rIdx = 0;
+ *             2) while (rIdx < chars.length())
+ *
+ * Problem Description:
+ * Given a string, print longest possible substring that has exactly M unique characters.
+ * If there are more than one substring of longest possible length, then print any one of them.
+ *
+ * Example #1:
+ * "aabbcc", k = 1
+ * Max substring can be any one from {"aa" , "bb" , "cc"}.
+ *
+ * "aabbcc", k = 2
+ * Max substring can be any one from {"aabb" , "bbcc"}.
+ *
+ * "aabbcc", k = 3
+ * There are substrings with exactly 3 unique characters
+ * {"aabbcc" , "abbcc" , "aabbc" , "abbc" }
+ * Max is "aabbcc" with length 6.
+ *
+ * "aaabbb", k = 3
+ * There are only two unique characters, thus show error message.
  */
 public class Leet0340 {
 

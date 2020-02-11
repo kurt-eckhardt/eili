@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * Problem #:  0295
  * Name:       Find Median from Data Stream
  * Tags:       Datastructure, Heap, Median
- * BigO:       Time O(Log N), O(N)
+ * BigO:       Time O(Log N), Space O(N)
  * Difficulty: Hard
  * Techniques: Heap
  *

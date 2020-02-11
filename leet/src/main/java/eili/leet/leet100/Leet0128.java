@@ -10,7 +10,7 @@ import java.util.Map;
  * Tags:       HashMap, Set, Algorithm
  * BigO:       Time O(N), Space O(N)
  * Difficulty: Hard (Medium?)
- * Techniques: ?
+ * Techniques: Define and Conquer
  * Learnings:  Think about how to define the critical aspect of the problem.  Build an
  *             algorithm around this definition.
  *
